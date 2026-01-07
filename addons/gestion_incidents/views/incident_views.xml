@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_tp_incident" model="ir.actions.act_window">
+        <field name="name">Incidents</field>
+        <field name="res_model">tp.incident</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_incident_root" name="Gestion Incidents" sequence="10"/>
+    <menuitem id="menu_gestion_incidents" name="Incidents" parent="menu_incident_root" action="action_tp_incident" sequence="10"/>
+
+    <record id="view_tp_incident_tree" model="ir.ui.view">
+        <field name="name">tp.incident.tree</field>
+        <field name="model">tp.incident</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="responsable"/>
+                <field name="date_signalement"/>
+                <field name="statut"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tp_incident_form" model="ir.ui.view">
+        <field name="name">tp.incident.form</field>
+        <field name="model">tp.incident</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="responsable"/>
+                        <field name="date_signalement"/>
+                        <field name="statut"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
